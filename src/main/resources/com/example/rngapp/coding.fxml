@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane"  prefHeight="896.0" prefWidth="1140.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rngapp.Controller">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <left>
+        <VBox spacing="50" prefHeight="100.0" prefWidth="300.0" BorderPane.alignment="TOP_RIGHT">
+            <Label fx:id="Code1result" prefHeight="90.0" prefWidth="300.0" textFill="WHITE"/>
+            <Label fx:id="Code2result" prefHeight="90.0" prefWidth="300.0" textFill="WHITE"/>
+            <Label fx:id="Code3result" prefHeight="90.0" prefWidth="300.0" textFill="WHITE"/>
+        </VBox>
+    </left>
+    <right>
+        <VBox spacing="50" prefHeight="100.0" prefWidth="300.0" BorderPane.alignment="TOP_LEFT">
+            <Button onAction="#onCode1Click" prefHeight="90.0" prefWidth="300.0" text="Coding 1"/>
+            <Button onAction="#onCode2Click" prefHeight="90.0" prefWidth="300.0" text="Coding 2"/>
+            <Button onAction="#onCode3Click" prefHeight="90.0" prefWidth="300.0" text="Coding 3"/>
+
+        </VBox>
+    </right>
+</BorderPane>
