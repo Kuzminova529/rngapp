@@ -1,7 +1,7 @@
 package com.example.rngapp;
 
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
+
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
@@ -27,19 +27,26 @@ public class Arduino {
             OutputStream output = serialPort.getOutputStream();
 
             // Отправка команды на Arduino
-            //String command = "Hello from Java!";
-            //output.write(command.getBytes());
+            String command = "start";
+            output.write(command.getBytes());
 
             // Чтение ответа от Arduino
             byte[] buffer = new byte[1024];
             int bytesRead = input.read(buffer);
             String response = new String(buffer, 0, bytesRead);
-            System.out.println("Response from Arduino: " + response);
-
+            //System.out.println("Response from Arduino: " + response);
+            try{
+                FileWriter writer = new FileWriter("C:\\rngapp\\rng_file.txt");
+                writer.write(response);
+                writer.close();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
             // Закрытие соединения с Arduino
             serialPort.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); //выволдит ошибку
         }
     }
 }
